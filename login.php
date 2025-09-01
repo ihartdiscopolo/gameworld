@@ -1,0 +1,46 @@
+<?php
+
+require("functions.php");
+
+if (isset($_SESSION['id'])) {
+    header("Location: index.php");
+    exit();
+}
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    login();
+}
+
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Login</title>
+</head>
+
+<body class="login">
+    <?php
+    htmlHead();
+    ?>
+    <main class = banner>
+        <form method="POST" action="login.php">
+            <h2>LOGIN</h2>
+            <?php if (isset($_POST['error'])) { ?>
+                <p class="error"><?php echo $_GET['error']; ?></p> <?php } ?>
+            <label>User Name</label>
+            <input type="text" name="uname" placeholder="User Name"><br>
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Password"><br>
+            <button class="btn" type="submit">Login</button>
+            <a href="signup.php">Sign Up</a>
+        </form>
+    </main>
+    <?php
+    htmlFooter();
+    ?>
+</body>
+</html>

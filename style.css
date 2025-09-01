@@ -1,0 +1,897 @@
+:root {
+    /* Color palette */
+    --dragon-text: #F5C45E;         /* Main text and accent color */
+    --dragon-bg-dark: #102E50;      /* Dark background (header, footer) */
+    --dragon-bg-medium: #1d4068;    /* Medium background (body, banners) */
+    --dragon-bg-light: #1a416d;     /* Light background (blog, etc.) */
+    --dragon-accent: #E78B48;       /* Primary accent (buttons, hovers) */
+    --dragon-hover: #BE3D2A;        /* Hover states */
+    --dragon-white: #fff;           /* Pure white */
+    --dragon-black: #000;           /* Pure black */
+    --dragon-shadow: rgba(0,0,0,0.2); /* Shadow base */
+    --dragon-shadow-dark: rgba(0,0,0,0.3); /* Darker shadow */
+    --dragon-shadow-light: rgba(0,0,0,0.15); /* Lighter shadow */
+    --pokemon-hover: #FFD700;       /* Pokemon category hover */
+    --mario-hover: #E53935;         /* Mario category hover */
+    --sonic-hover: #1E88E5;         /* Sonic category hover */
+    --input-bg: #fbc16d;            /* Input background */
+    --gold-accent: #ffc107;         /* Gold accent for labels */
+}
+
+#category-1 {
+    --dragon-text: #82ffff;  
+    --dragon-bg-light: #5fcaca; 
+    --dragon-accent: #499b9b;
+}
+
+#category-2 {
+    --dragon-text: #76c3ef;  
+    --dragon-bg-light: #3a90c1; 
+    --dragon-accent:#3a90c1;
+}
+
+#category-3 {
+     --dragon-text: #2d8ceb;  
+     --dragon-bg-light: #2d8ceb;
+     --dragon-accent: #2878c9;
+}
+
+@font-face {
+    font-family: DRAGON;
+    src: url("dragon-hunter-font/DragonHunter-9Ynxj.otf");
+}
+
+#Header {
+    font-family: DRAGON;
+    background-color: var(--dragon-bg-dark);
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--dragon-text);
+    text-align: center;
+}
+
+#Logo {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--dragon-text);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+#Header a[href="index.php"] {
+    text-decoration: none;
+}
+
+#Main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+    padding: 0;
+    margin: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+#Main-nav ul li a {
+    color: var(--dragon-text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+#Main-nav ul li a:hover {
+    color: var(--dragon-accent);
+}
+
+#Main-nav ul li a:active {
+    color: var(--dragon-hover);
+}
+
+.containerIndex {
+    font-family: DRAGON;
+    background-color: var(--dragon-bg-dark);
+    color: var(--dragon-text);
+    padding: 4rem 2rem;
+    text-align: center;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: radial-gradient(circle at top left, rgba(255, 255, 255, 0.05), transparent),
+                      radial-gradient(circle at bottom right, rgba(255, 255, 255, 0.03), transparent);
+}
+
+.containerIndex h1 {
+    font-size: 6rem;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px var(--dragon-black);
+    animation: fadeInGlow 2s ease-in-out forwards;
+}
+
+.containerIndex p {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: var(--dragon-text);
+}
+
+.btn {
+    background-color: var(--dragon-accent);
+    color: var(--dragon-bg-dark);
+    padding: 2rem 3rem;
+    font-size: 3rem;
+    text-decoration: none;
+    border-radius: 10px;
+    font-weight: bold;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 8px var(--dragon-shadow);
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    background-color: var(--dragon-hover);
+    color: var(--dragon-white);
+    border-color: var(--dragon-text);
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px var(--dragon-shadow-dark);
+}
+
+@keyframes fadeInGlow {
+    0% {
+        opacity: 0;
+        transform: scale(0.95);
+        text-shadow: 0 0 5px var(--dragon-text);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        text-shadow: 0 0 15px var(--dragon-text), 0 0 30px rgba(245, 196, 94, 0.53);
+    }
+}
+
+#Footer {
+    background-color: #00000000;
+    color: var(--dragon-white);
+    text-align: center;
+    padding: 1rem;
+
+    margin-top: auto;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main.banner {
+    background-color: var(--dragon-bg-medium);
+    color: var(--dragon-text);
+    padding: 4rem 2rem;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    font-family: DRAGON;
+}
+
+main.banner h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+main.banner p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+form {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+form label {
+    font-size: 1rem;
+    text-align: left;
+    color: var(--dragon-text);
+    font-weight: bold;
+}
+
+form input,
+form textarea {
+    padding: 0.75rem;
+    border: none;
+    border-radius: 8px;
+    background-color: var(--dragon-text);
+    color: var(--dragon-bg-dark);
+    font-size: 1rem;
+    width: 100%;
+    font-family: inherit;
+    resize: none;
+}
+
+form input::placeholder,
+form textarea::placeholder {
+    color: var(--dragon-bg-dark);
+    opacity: 0.7;
+}
+
+form button {
+    background-color: var(--dragon-accent);
+    color: var(--dragon-bg-dark);
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+form button:hover {
+    background-color: var(--dragon-hover);
+    color: var(--dragon-white);
+}
+
+.product-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    max-width: calc(230px * 4 + 1.5rem);
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.product {
+    flex: 0 0 230px;
+    background-color: var(--dragon-text);
+    color: var(--dragon-white);
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px var(--dragon-shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.product:hover {
+    background-color: var(--dragon-accent);
+    transform: translateY(-5px);
+}
+
+.productImage {
+    width: 200px;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px solid var(--dragon-hover);
+    border-radius: 0.5rem;
+    transition: transform 0.3s;
+}
+
+.productImage:hover {
+    transform: scale(1.05);
+}
+
+.product:hover .productImage {
+    border-color: var(--dragon-white);
+}
+
+.productDetails {
+    margin-top: 1rem;
+    color: var(--dragon-white);
+    font-family: ROBUS;
+}
+
+.add-to-cart {
+    background-color: var(--dragon-hover);
+    color: var(--dragon-white);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.add-to-cart:hover {
+    background-color: var(--dragon-bg-dark);
+}
+
+.product label {
+    color: var(--dragon-white);
+    font-weight: bold;
+}
+
+.product-quantity-label {
+    color: var(--dragon-white);
+    font-weight: bold;
+}
+
+table {
+    width: 90%;
+    margin: 3rem auto;
+    border-collapse: collapse;
+    background-color: var(--dragon-bg-dark);
+    color: var(--dragon-text);
+    box-shadow: 0 0 15px var(--dragon-shadow);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+thead {
+    background-color: var(--dragon-accent);
+    color: var(--dragon-bg-dark);
+}
+
+thead th {
+    padding: 1rem;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+tbody td, tfoot td {
+    padding: 1rem;
+    text-align: center;
+    border-top: 1px solid rgba(245, 196, 94, 0.2);
+}
+
+tfoot {
+    background-color: var(--dragon-bg-dark);
+    font-weight: bold;
+    color: var(--dragon-text);
+}
+
+tfoot td {
+    padding: 1rem;
+}
+
+img {
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.33);
+}
+
+button,
+a.btn {
+    background-color: var(--dragon-accent);
+    color: var(--dragon-bg-dark);
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+}
+
+button:hover,
+a.btn:hover {
+    background-color: var(--dragon-hover);
+    color: var(--dragon-white);
+    transform: scale(1.05);
+}
+
+
+.product select,
+.product input {
+    color: var(--dragon-white);
+    background-color: var(--dragon-accent);
+    border: none;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.product input[type="number"] {
+    color: var(--dragon-bg-dark);
+    background-color: var(--dragon-white);
+    border: 1px solid #ccc;
+    font-weight: bold;
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    width: 80%;
+    margin: 0 auto;
+    display: block;
+}
+
+.product input[type="number"]:hover,
+.product input[type="number"]:focus {
+    border-color: var(--dragon-bg-dark);
+    outline: none;
+}
+
+button,
+.btn {
+    background-color: var(--dragon-hover);
+    font-family: DRAGON;
+    color: var(--dragon-white);
+    border: none;
+    padding: 0.6rem 1.2rem;
+    margin: 0.3rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover,
+.btn:hover {
+    background-color: var(--dragon-accent);
+    color: var(--dragon-white);
+}
+
+a {
+    color: var(--dragon-white);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+img {
+    border-radius: 10px;
+}
+
+body {
+    background-color: var(--dragon-bg-light);
+    font-family: DRAGON;
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+.category-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem;
+    justify-content: center;
+}
+
+.category-container div {
+    padding: 2rem 5rem;
+    border-radius: 30px;
+    margin-top: 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--dragon-white);
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    box-shadow: 0 4px 10px var(--dragon-shadow-light);
+}
+
+.category-container div a {
+    text-decoration: none;
+    color: var(--dragon-white);
+}
+
+#Pokemon:hover {
+    background-color: var(--pokemon-hover);
+    transform: scale(1.05);
+    animation: fadeInGlow 2s ease-in-out forwards;
+}
+
+#Mario:hover {
+    background-color: var(--mario-hover);
+    transform: scale(1.05);
+    animation: fadeInGlow 2s ease-in-out forwards;
+}
+
+#Sonic:hover {
+    background-color: var(--sonic-hover);
+    transform: scale(1.05);
+    animation: fadeInGlow 2s ease-in-out forwards;
+}
+
+.product-flexbox {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.product-image-container-single {
+    flex: 0 0 35%;
+    max-width: 35%;
+}
+
+.productImage {
+    width: 90%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.productDetailsSingle {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    flex: 1;
+    max-width: 65%;
+    color: var(--dragon-white);
+}
+
+.product-single {
+    background-color: #002b50;
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--dragon-shadow-dark);
+    margin: 2rem auto;
+    max-width: 1200px;
+}
+
+.quantity-label {
+    color: var(--gold-accent);
+    font-weight: bold;
+    display: block;
+    margin: 1rem 0 0.5rem;
+}
+
+.form-control {
+    width: 100%;
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--input-bg);
+    color: var(--dragon-white);
+    font-weight: bold;
+}
+
+.add-to-cart {
+    margin-top: 1rem;
+    background-color: #c0392b;
+    color: var(--dragon-white);
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.add-to-cart:hover {
+    background-color: #e74c3c;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+#sidebar {
+    background-color: var(--dragon-bg-dark);
+    color: var(--dragon-text);
+    font-family: DRAGON;
+    width: 300px;
+    height: 100vh;
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+#blogCategory {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+#blogCategory p {
+    margin-top: 3rem;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+#blogCategory h2 {
+    font-size: 1.8rem;
+}
+
+#blogCategory div a {
+    background-color: var(--dragon-hover);
+    color: var(--dragon-white);
+    padding: 0.6rem 1.2rem;
+    border-radius: 1rem;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.2;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+#blogCategory div a:hover {
+    background-color: var(--dragon-accent);
+    transform: scale(1.05);
+}
+
+#blogCategory a[href="placeBlog.php"] {
+    background-color: var(--dragon-text);
+    color: var(--dragon-bg-dark);
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: 0.3s ease;
+}
+
+#blogCategory a[href="placeBlog.php"]:hover {
+    background-color: var(--dragon-hover);
+    color: var(--dragon-white);
+}
+
+#blogMain {
+    flex: 1;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.blogPosts {
+    background-color: var(--dragon-bg-dark);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 15px var(--dragon-shadow-dark);
+}
+
+.blogPosts h2 a {
+    color: var(--pokemon-hover);
+    text-decoration: none;
+}
+
+.blogPosts h2 a:hover {
+    color: var(--dragon-accent);
+    text-decoration: underline;
+}
+
+.comment {
+    background-color: var(--dragon-bg-light);
+    padding: 1rem;
+    margin-top: 1rem;
+    border-left: 4px solid var(--dragon-text);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px var(--dragon-shadow);
+    color: var(--dragon-white);
+}
+
+#popupForm {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -10%);
+    background-color: var(--dragon-bg-medium);
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 0 25px rgba(0,0,0,0.5);
+    z-index: 999;
+    max-width: 500px;
+    width: 90%;
+}
+
+#popupForm form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#popupForm textarea {
+    height: 100px;
+}
+
+body#blog {
+    display: block;
+    gap: 2rem;
+}
+
+
+.blogWrapper {
+    display: flex;
+    align-items: flex-start;
+    height: 100vh;
+}
+
+.blog-main {
+    background-color: var(--dragon-bg-light);
+    color: var(--dragon-text);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.blog-form {
+    background-color: var(--dragon-bg-dark);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 15px var(--dragon-shadow-dark);
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.blog-title {
+    text-align: center;
+    font-size: 2rem;
+    color: var(--dragon-text);
+}
+
+.blog-label {
+    font-weight: bold;
+    color: var(--dragon-text);
+}
+
+.blog-input,
+.blog-select,
+.blog-textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: none;
+    background-color: var(--dragon-text);
+    color: var(--dragon-bg-dark);
+    font-family: inherit;
+    font-size: 1rem;
+    resize: none;
+}
+
+.blog-input::placeholder,
+.blog-textarea::placeholder {
+    color: var(--dragon-bg-dark);
+    opacity: 0.7;
+}
+
+.blog-btn {
+    background-color: var(--dragon-accent);
+    color: var(--dragon-bg-dark);
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.blog-btn:hover {
+    background-color: var(--dragon-hover);
+    color: var(--dragon-white);
+}
+
+.gif-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px auto;
+    width: 100%;
+    max-width: 950px;
+  }
+  
+  .gif-wrapper img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    display: block;
+  }
+  
+  .gif-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: rgba(255, 255, 255, 0.805);
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-shadow: var(--dragon-shadow-dark);
+    pointer-events: none;
+    text-align: center;
+  }
+
+.popular-games {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.popular-games p {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--dragon-white);
+    margin: 0;
+}
+
+.other-games {
+    text-align: center;
+    margin-bottom: 40px;
+    margin-top: 40px;
+}
+
+.other-games p {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--dragon-white);
+    margin: 0;
+}
+
+.about-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--dragon-bg-light);
+    color: var(--dragon-text);
+    padding: 2rem;
+    max-width: 1000px;  /* increased width */
+    margin: 3rem auto;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px var(--dragon-shadow);
+}
+
+.about-text {
+    background-color: var(--dragon-bg-light);
+    padding: 1.5rem;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--dragon-white);
+}
+
+.about-text h2 {
+    font-size: 2rem;
+    color: var(--dragon-accent);
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--gold-accent);
+    padding-bottom: 0.5rem;
+    text-align: center;
+}
+
+.about-text p {
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+}
+
+.about-image {
+    text-align: center;
+    margin-top: 1rem;
+}
+.about-image img {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    border-radius: 12px;
+    margin-top: 2rem;
+    box-shadow: 0 6px 16px var(--dragon-shadow-dark);
+}
+
+.about-image img:hover {
+    transform: scale(1.02);
+}
